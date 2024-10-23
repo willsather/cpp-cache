@@ -1,8 +1,7 @@
 #include "lfu_cache.hpp"
 #include <gtest/gtest.h>
 
-TEST(LFUCacheTest, BasicPutAndGet)
-{
+TEST(LFUCacheTest, BasicPutAndGet) {
     LFUCache<int, std::string> cache(2);
 
     // insert key value pairs
@@ -17,8 +16,7 @@ TEST(LFUCacheTest, BasicPutAndGet)
     EXPECT_EQ(cache.get(3), std::nullopt);
 }
 
-TEST(LFUCacheTest, EvictionTest)
-{
+TEST(LFUCacheTest, EvictionTest) {
     LFUCache<int, std::string> cache(2);
 
     // insert key value pairs
@@ -41,8 +39,7 @@ TEST(LFUCacheTest, EvictionTest)
     EXPECT_EQ(cache.get(3), "Three");
 }
 
-TEST(LFUCacheTest, VariableFrequencyEvictionTest)
-{
+TEST(LFUCacheTest, VariableFrequencyEvictionTest) {
     LFUCache<int, std::string> cache(3);
 
     // insert key value pairs
@@ -67,8 +64,7 @@ TEST(LFUCacheTest, VariableFrequencyEvictionTest)
     EXPECT_EQ(cache.get(4), "Four");
 }
 
-TEST(LFUCacheTest, UpdateExistingKeyTest)
-{
+TEST(LFUCacheTest, UpdateExistingKeyTest) {
     LFUCache<int, std::string> cache(2);
 
     // insert key value pairs
@@ -85,8 +81,7 @@ TEST(LFUCacheTest, UpdateExistingKeyTest)
     EXPECT_EQ(cache.get(2), "Two");
 }
 
-TEST(LFUCacheTest, ZeroCapacityTest)
-{
+TEST(LFUCacheTest, ZeroCapacityTest) {
     LFUCache<int, std::string> cache(0);
 
     // add item to cache of size 0
@@ -96,8 +91,7 @@ TEST(LFUCacheTest, ZeroCapacityTest)
     EXPECT_EQ(cache.get(1), std::nullopt);
 }
 
-TEST(LFUCacheTest, CapacityOneEvictionTest)
-{
+TEST(LFUCacheTest, CapacityOneEvictionTest) {
     LFUCache<int, std::string> cache(1);
 
     // insert key value pair into cache of size 1

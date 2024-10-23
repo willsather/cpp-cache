@@ -2,8 +2,7 @@
 #include "time_based_cache.hpp"
 #include <thread>
 
-TEST(TimeBasedCacheTest, BasicPutAndGet)
-{
+TEST(TimeBasedCacheTest, BasicPutAndGet) {
     TimeBasedCache<int, std::string> cache(std::chrono::seconds(5));
 
     cache.put(1, "one");
@@ -13,8 +12,7 @@ TEST(TimeBasedCacheTest, BasicPutAndGet)
     EXPECT_EQ(cache.get(2).value(), "two");
 }
 
-TEST(TimeBasedCacheTest, ExpirationTest)
-{
+TEST(TimeBasedCacheTest, ExpirationTest) {
     TimeBasedCache<int, std::string> cache(std::chrono::seconds(2));
 
     cache.put(1, "one");
@@ -29,8 +27,7 @@ TEST(TimeBasedCacheTest, ExpirationTest)
     EXPECT_EQ(cache.get(2), std::nullopt);
 }
 
-TEST(TimeBasedCacheTest, UpdateExistingKeyRefreshTest)
-{
+TEST(TimeBasedCacheTest, UpdateExistingKeyRefreshTest) {
     TimeBasedCache<int, std::string> cache(std::chrono::seconds(3));
 
     cache.put(1, "one");
@@ -42,8 +39,7 @@ TEST(TimeBasedCacheTest, UpdateExistingKeyRefreshTest)
     EXPECT_EQ(cache.get(1).value(), "uno"); // should still be available
 }
 
-TEST(TimeBasedCacheTest, CleanupTest)
-{
+TEST(TimeBasedCacheTest, CleanupTest) {
     TimeBasedCache<int, std::string> cache(std::chrono::seconds(2));
 
     cache.put(1, "one");

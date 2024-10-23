@@ -5,9 +5,8 @@
 
 #include <optional>
 
-template <typename Key, typename Value>
-class Cache
-{
+template<typename Key, typename Value>
+class Cache {
 public:
     virtual ~Cache() = default;
 
