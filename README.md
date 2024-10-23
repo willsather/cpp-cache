@@ -5,9 +5,10 @@ This repository contains implementations of various caching strategies in C++, i
 ## Table of Contents
 
 1. [Setup](#setup)
-2. [Building the Project](#building-the-project)
-3. [Running Tests](#running-tests)
-4. [Caching Strategies](#caching-strategies)
+   - [Build](#build)
+   - [Testing](#testing)
+
+2. [Caching Strategies](#caching-strategies)
    - [LRU Cache](#lru-cache)
    - [LFU Cache](#lfu-cache)
    - [Time-Based Cache](#time-based-cache)
